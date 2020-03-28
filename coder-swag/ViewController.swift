@@ -42,6 +42,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let productVC = segue.destination as? ProductsVC{
+            
+            // da se na ProductVC ne bi video naziv pored strelice nego samo strelica
+            let barBtn = UIBarButtonItem()
+            barBtn.title = ""
+            navigationItem.backBarButtonItem = barBtn
+            
+            assert(sender as? Category != nil)
             productVC.initProducts(category: sender as! Category)
         }
     }
